@@ -1,0 +1,56 @@
+{
+  "name": "shmaker",
+  "version": "1.0.0",
+  "description": "A collection of essential utility functions by shailesh-04",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "npx nodemon index.js",
+    "start": "node index.js",
+    "build": "tsc",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "format": "prettier --write src/**/*.ts",
+    "release": "standard-version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shailesh-04/shmaker.git"
+  },
+  "keywords": [
+    "shmaker",
+    "utilities",
+    "helpers",
+    "tools",
+    "shailesh",
+    "cli",
+    "utils",
+    "generator",
+    "file",
+    "migration",
+    "tooling"
+  ],
+  "author": "Shailesh Makavana <your-email@example.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shailesh-04/shmaker/issues"
+  },
+  "homepage": "https://github.com/shailesh-04/shmaker#readme",
+  "files": [
+    "dist/**/*"
+  ],
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.15.21",
+    "jest": "^29.7.0",
+    "prettier": "^3.5.3",
+    "standard-version": "^9.5.0",
+    "ts-jest": "^29.3.4",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "shmaker": "file:shmaker-1.0.0.tgz"
+  }
+}
