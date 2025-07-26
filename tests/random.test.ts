@@ -1,4 +1,4 @@
-import {random} from '../src/utils/random';
+import {random} from '../src/lib/random';
 
 describe('random()', () => {
     it('should return a number within the specified range (inclusive min, exclusive max)', () => {

@@ -1,2 +1,2 @@
-export * from "./utils/random";
-export * from './utils/color';
+export * from './lib/random';
+export * from './lib/color';
