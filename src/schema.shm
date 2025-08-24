@@ -1,0 +1,51 @@
+costome_table(
+    _id int pk,
+    _id id(),
+    name string ,
+    description text null,
+    price decimal(10,2),
+    quantity int,
+    category string(100) null,
+    brand string(100) null,
+    sku string uniq,
+    image_main_url string null,
+    image_gallery_urls json null,
+    created_at date default(now),
+    updated_at date default(now on update now)
+);
+
+
+data_types_demo (
+
+  _id           id(),
+  id int        autofill pk,
+  int_col       INT default(100) comment('Regular integer'),
+  big_col       BINT default(9999999999),
+
+  decimal_col   decimal(10, 2) default(0.00),
+  numeric_col   number(8, 3) default(1.234),
+  float_col     float(6,2) default(12.34),
+  double_col    double(10,4) default(1234.5678),
+
+  char_col      CHAR(10) default('default'),
+  varchar_col   string,  
+  text_col      TEXT,
+
+  enum_col      setone('small', 'medium', 'large') default('medium'),
+  set_col       set('read', 'write', 'execute') default('read,write'),
+
+  date_col      DATE default('2025-01-01'),
+  datetime_col  DATETIME default(now),
+  stamp_col     TSTAMP default(now)ON(UPDATE(now)),
+  time_col      TIME default('12:00:00'),
+  year_col      YEAR default(2025),
+
+  related_id   INT,
+  
+  fk(related_id,another_table(id))ON(delete(nul),update),
+  INDEX(idx_varchar_col,[varchar_col]),
+  UNIQUE INDEX uniq_char_col (char_col),
+  CHECK(float_col <= 99.99),
+  pk(id)
+
+) 
