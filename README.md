@@ -172,7 +172,7 @@ import type { ColorStyle, ColorMessage } from 'shmaker';
 
 ### Basic Usage Old Versions
 
-<details style="cursor:pointer;"><summary></summary><div>
+<details style="cursor:pointer;"><summary><h2>1.0.3</h2></summary><div>
 
 
 ```javascript
