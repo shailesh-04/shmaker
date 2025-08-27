@@ -1,20 +1,15 @@
 {
   "name": "shmaker",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A collection of essential utility functions by shailesh-04",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
-    "migrate": "ts-node-dev --respawn src/scripts/migrate.ts",
+    "dev": "ts-node-dev --respawn index.ts",
     "start": "node dist/index.js",
-    "start-dev": "nodemon dist/index.js",
+    "start-dev": "npx nodemon index.js",
     "build": "tsc",
-    "test": "jest --coverage",
-    "test:watch": "jest --watch",
-    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx}\"",
-    "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "release": "standard-version",
     "public": "git push --follow-tags origin main && npm publish --access public",
     "prepare": "npm run build"
@@ -54,20 +49,15 @@
     "dist/**/*"
   ],
   "devDependencies": {
-    "@types/jest": "^29.5.14",
     "@types/node": "^22.15.21",
-    "eslint": "^8.57.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-unused-imports": "^3.1.0",
-    "jest": "^29.7.0",
-    "prettier": "^3.5.3",
     "standard-version": "^9.5.0",
-    "ts-jest": "^29.3.4",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.8.3"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "shmaker": "file:shmaker-1.0.3.tgz"
   }
 }
