@@ -1,2 +1,4 @@
-import { color, random } from "shmaker";
-color([`helloe sir${random(1,100)}`,"red"])
+const { color } = require("shmaker");
+
+color("hellow world","underline");
+console.log("message")

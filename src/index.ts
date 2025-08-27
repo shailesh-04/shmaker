@@ -1,2 +1,2 @@
-export * from './lib/random';
+export * from './lib/utils';
 export * from './lib/color';

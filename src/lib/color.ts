@@ -86,32 +86,77 @@ const styles: Record<ColorStyle, string> = {
   bgBrightCyan: '\u001b[106m',
   bgBrightWhite: '\u001b[107m',
 };
-
 /**
  * Applies color and styles to text segments
  * @param messages Array of ColorMessage tuples [text, color?, styles?]
  */
-export function color(...messages: ColorMessage[]): void {
-  const formatted = messages.map(([text, color, style]) => {
-    let output = '';
+export function color(
+  value: any,
+  appliedStyles?: ColorStyle | ColorStyle[]
+): void {
+  let text = "";
+
+  // Convert input to string
+  if (typeof value === "string" || typeof value === "number") {
+    text = String(value);
+  } else if (Array.isArray(value)) {
+    text = value.join(", "); // Join array items
+  } else if (typeof value === "object" && value !== null) {
+    text = JSON.stringify(value, null, 2); // Pretty print object
+  } else {
+    text = String(value); // fallback
+  }
+
+  // Normalize styles array
+  const stylesToApply = appliedStyles
+    ? Array.isArray(appliedStyles)
+      ? appliedStyles
+      : [appliedStyles]
+    : [];
+
+  // Apply all styles
+  let output = "";
+  stylesToApply.forEach((s) => {
+    if (styles[s]) output += styles[s];
+  });
+
+  console.log(output + text + styles.reset);
+}
+
+// Add this new function to handle multiple color segments
+/**
+ * 
+ * @param messages Array of ColorMessage tuples [text, color?, styles?]
+ * 
+ */
+export function colorMulti(messages: ColorMessage[]): void {
+  let output = '';
+
+  messages.forEach(([text, color, stylesToApply]) => {
+    // Normalize styles array
+    const stylesArray = stylesToApply
+      ? Array.isArray(stylesToApply)
+        ? stylesToApply
+        : [stylesToApply]
+      : [];
 
     // Apply color if specified
     if (color && styles[color]) {
       output += styles[color];
     }
 
-    // Apply styles if specified
-    if (style) {
-      const stylesToApply = Array.isArray(style) ? style : [style];
-      stylesToApply.forEach((s) => {
-        if (styles[s]) output += styles[s];
-      });
-    }
+    // Apply additional styles
+    stylesArray.forEach(s => {
+      if (styles[s]) output += styles[s];
+    });
 
-    return output + text + styles.reset;
+    output += text;
+
+    // Reset styles after each segment
+    output += styles.reset;
   });
 
-  console.log(formatted.join(' '));
+  console.log(output);
 }
 
 /**
@@ -137,14 +182,23 @@ export function catchErr(err?: unknown, path?: string): void {
     }
   }
 
-  color(
-    ['\n══════════ ERROR ══════════', 'brightRed', ['bold', 'underline']],
-    ['\n\nMessage: ', 'yellow', 'bold'],
+  // Use the new colorMulti function instead of color
+  colorMulti([
+    ['\n══════════════════════════════════════', 'brightRed', ['bold']],
+    ['\n   🚨  ERROR OCCURRED', 'brightRed', ['bold', 'underline']],
+    ['\n══════════════════════════════════════\n', 'brightRed', ['bold']],
+
+    ['\n🛠  Stack Trace:\n', 'magenta', ['underline', 'bold']],
+    [stack.split("\n").slice(0, 4).join("\n"), 'white', 'dim'],
+
+    ['\n\n📌 Message: ', 'yellow', 'bold'],
     [message, 'brightYellow'],
-    ['\n\nPath: ', 'cyan', 'bold'],
+
+    ['\n📂 Path: ', 'cyan', 'bold'],
     [filePath, 'brightCyan', 'italic'],
-    ['\n\nStack Trace:', 'magenta', ['underline', 'dim']],
-    [stack, 'white', 'dim']
-  );
+
+
+
+    ['\n══════════════════════════════════════\n', 'brightRed', ['bold']]
+  ]);
 }
-export default color;

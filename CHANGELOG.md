@@ -3,6 +3,9 @@
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 ### [1.0.4](https://github.com/shailesh-04/shmaker/compare/v1.0.2...v1.0.4) (2025-08-27)
+- fix : limited colors and hard use 
+- change : random fuc. add decimal point random value
+- add : colorMulti - for new fuction
 
 ## [1.0.3] - 2025-08-24
 ### Fixed
