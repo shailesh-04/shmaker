@@ -1,6 +1,6 @@
 {
   "name": "shmaker",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A collection of essential utility functions by shailesh-04",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -54,10 +54,8 @@
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.8.3"
   },
+  "dependencies": {},
   "publishConfig": {
     "access": "public"
-  },
-  "dependencies": {
-    "shmaker": "file:shmaker-1.0.3.tgz"
   }
 }
