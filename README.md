@@ -1,18 +1,23 @@
-# shmaker ![npm](https://img.shields.io/npm/v/shmaker) ![npm](https://img.shields.io/npm/dt/shmaker) ![GitHub](https://img.shields.io/github/license/shailesh-04/shmaker) ![GitHub issues](https://img.shields.io/github/issues/shailesh-04/shmaker) ![GitHub pull requests](https://img.shields.io/github/issues-pr/shailesh-04/shmaker)
+# shmaker
 
-🔗 **Package Link:** [shmaker](https://www.npmjs.com/package/shmaker)
+![npm](https://img.shields.io/npm/v/shmaker) 
+![npm](https://img.shields.io/npm/dt/shmaker) 
+![GitHub](https://img.shields.io/github/license/shailesh-04/shmaker)
 
-A developer-friendly CLI utility toolkit for automating repetitive tasks like generating migration files, folders, boilerplate code, and more. Built by and for developers who love speed, structure, and simplicity.
+🔗 **Package Link:** [shmaker on npm](https://www.npmjs.com/package/shmaker)
+
+A developer-friendly CLI utility toolkit for automating repetitive tasks and enhancing console output with beautiful colors and error handling.
 
 ---
 
 ## ✨ Features
 
-- 📁 Generate migration files with timestamps
-- 🗂️ Create files and folders with one command
-- 🚀 Initialize project structure quickly
-- 🧰 Simple and extensible utility commands
-- 🖥️ Easy CLI usage without polluting your project code
+- 🎨 Colorful console output with extensive styling options
+- 🚀 Simple and intuitive API
+- 📝 Pretty error formatting with stack traces
+- 🔧 Utility functions for random numbers and delays
+- 📦 Lightweight and dependency-free
+- 🦾 Full TypeScript support
 
 ---
 
@@ -24,19 +29,13 @@ npm install shmaker
 
 # or using yarn
 yarn add shmaker
-
 ```
 
-## Color Utility
+## 🚀 Quick Start
+<!-- /============ 1.0.4 ===========/ -->
+<details style="cursor:pointer;"><summary><h2>1.0.4</h2></summary><div>
 
-how to use this tool in any project with diffent versions
-
-## Quick Start
-
-<!-- /====== 1.0.4 =========/ -->
-<div>
-
-
+  
 ```javascript
 import { color, colorMulti, catchErr } from 'shmaker';
 
@@ -62,19 +61,17 @@ try {
 }
 ```
 
-## API Reference
+## 📖 API Reference
 
 ### `color(value: any, appliedStyles?: ColorStyle | ColorStyle[])`
 
-Applies colors and styles to a single text value.
+Applies colors and styles to text output.
 
 **Parameters:**
-
-- `value`: Any value (string, number, array, object) - will be converted to string
+- `value`: Any value (will be converted to string)
 - `appliedStyles`: Optional color style or array of styles
 
 **Example:**
-
 ```javascript
 color('Success!', 'green');
 color('Warning', ['yellow', 'bold']);
@@ -83,14 +80,12 @@ color({ data: 'test' }, 'cyan'); // Objects are JSON stringified
 
 ### `colorMulti(messages: ColorMessage[])`
 
-Applies different colors and styles to multiple text segments.
+Applies different colors to multiple text segments.
 
 **Parameters:**
-
 - `messages`: Array of tuples `[text, color?, styles?]`
 
 **Example:**
-
 ```javascript
 colorMulti([
   ['[', 'white'],
@@ -102,15 +97,13 @@ colorMulti([
 
 ### `catchErr(err?: unknown, path?: string)`
 
-Pretty error logger with colored stack traces and formatted output.
+Pretty error logger with colored stack traces.
 
 **Parameters:**
-
-- `err`: Error object, string message, or any error value
+- `err`: Error object or message
 - `path`: Optional file path for context
 
 **Example:**
-
 ```javascript
 try {
   riskyOperation();
@@ -119,23 +112,20 @@ try {
 }
 ```
 
-## Available Styles
+## 🎨 Available Styles
 
 ### Text Colors:
-
 - **Basic**: `black`, `red`, `green`, `yellow`, `blue`, `magenta`, `cyan`, `white`
 - **Bright**: `brightBlack`, `brightRed`, `brightGreen`, `brightYellow`, `brightBlue`, `brightMagenta`, `brightCyan`, `brightWhite`
 
 ### Background Colors:
-
 - **Basic**: `bgBlack`, `bgRed`, `bgGreen`, `bgYellow`, `bgBlue`, `bgMagenta`, `bgCyan`, `bgWhite`
 - **Bright**: `bgBrightBlack`, `bgBrightRed`, `bgBrightGreen`, `bgBrightYellow`, `bgBrightBlue`, `bgBrightMagenta`, `bgBrightCyan`, `bgBrightWhite`
 
 ### Text Styles:
-
 - `reset`, `bold`, `dim`, `italic`, `underline`, `blink`, `inverse`, `hidden`, `strikethrough`
 
-## Additional Utilities
+## 🔧 Additional Utilities
 
 ### `random(min: number, max: number, decimals?: number): number`
 
@@ -158,7 +148,7 @@ import { sleep } from 'shmaker';
 await sleep(1000); // Wait 1 second
 ```
 
-## TypeScript Support
+## 🦾 TypeScript Support
 
 Full TypeScript definitions included:
 
@@ -166,13 +156,13 @@ Full TypeScript definitions included:
 import type { ColorStyle, ColorMessage } from 'shmaker';
 ```
 
-## </div>
+</div></details>
 
-<!-- /====== 1.0.3 =========/ -->
+<!-- /============ 1.0.3 ===========/ -->
 
-### Basic Usage Old Versions
+----
 
-<details style="cursor:pointer;"><summary></summary><div>
+<details style="cursor:pointer;"><summary><h2>1.0.3</h2></summary><div>
 
 
 ```javascript
@@ -234,35 +224,10 @@ try {
 
 </div></details>
 
----
-
-Outputs formatted error messages with:
-
-- Red underlined header
-- Yellow error message
-- Blue inverted file path
-- Stack trace (if available)
-
-## License
+## 📄 License
 
 MIT © [Shailesh Makavana](https://github.com/shailesh-04)
 
 ---
 
-Key improvements:
-
-1. Better organized documentation structure
-2. More practical usage examples
-3. Complete list of available options
-4. Clear error handling example
-5. Added development commands
-6. Professional formatting
-7. TypeScript/JavaScript import syntax
-8. Clear section separation
-
-Would you like me to add any additional sections like:
-
-- API reference with all parameters
-- Contribution guidelines
-- Changelog section
-- More advanced usage examples?
+**Pro Tip:** Use `shmaker` to make your CLI tools, scripts, and error messages more readable and professional-looking with minimal code!
