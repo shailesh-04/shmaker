@@ -54,10 +54,8 @@
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.8.3"
   },
+  "dependencies": {},
   "publishConfig": {
     "access": "public"
-  },
-  "dependencies": {
-    "shmaker": "file:shmaker-1.0.3.tgz"
   }
 }
